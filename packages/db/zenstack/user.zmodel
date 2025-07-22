@@ -1,0 +1,77 @@
+import 'base'
+import 'beneficiary'
+import 'infra'
+import 'eventstore'
+import 'invoice'
+import 'organization'
+
+model User extends Projection, Base {
+  name                    String
+  username                String?              @unique
+  email                   String?              @unique
+  phone                   String?              @unique
+  isActive                Boolean              @default(true)
+  lastActiveAt            DateTime?
+  userSecret              UserSecret?
+  otp                     OneTimePassword?
+
+  deviceTokens            DeviceToken[]
+  refreshTokens           RefreshToken[]
+  notifications           Notification[]
+  memberOfTenants         TenantMember[]
+
+  viewLogCreations        ViewLog[]            @relation("creator")
+  eventStoreCreations     EventStore[]         @relation("creator")
+  commandCreations        EventCommand[]       @relation("creator")
+  invoiceInquiryCreations InvoiceInquiry[]     @relation("creator")
+  invoiceInquiryUpdates   InvoiceInquiry[]     @relation("updater")
+  tenantCreations         Tenant[]             @relation("creator")
+  tenantUpdates           Tenant[]             @relation("updater")
+  tenantMemberCreations   TenantMember[]       @relation("creator")
+  tenantMemberUpdates     TenantMember[]       @relation("updater")
+  tenantPolicyCreations   TenantAccessPolicy[] @relation("creator")
+  tenantPolicyUpdates     TenantAccessPolicy[] @relation("updater")
+  resourceCreations       Resource[]           @relation("creator")
+  resourceUpdates         Resource[]           @relation("updater")
+
+
+  // creator                        User                            @relation('creator', fields: [creatorId], references: [id])
+  // creatorId                      String
+  // updater                        User                            @relation('updater', fields: [updaterId], references: [id])
+  // updaterId                      String
+
+  // Change logs
+  // productionEventChangeLogs          ProductionEventChangeLog[]       @relation('ChangedBy')
+  // productionEventContributorChangeLog     ProductionEventContributorChangeLog[] @relation('ChangedBy')
+}
+
+
+model UserSecret {
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String   @unique @id
+  passwordHash String?  @omit
+  otpSecret    String   @omit
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model DeviceToken extends Base {
+  token      String
+  deviceType String
+  user       User   @relation(fields: [userId], references: [id])
+  userId     String
+
+  @@unique([token, userId])
+}
+
+model RefreshToken extends Base {
+  revokedAt DateTime?
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+}
+
+model OneTimePassword extends Primitive {
+  token  String
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+}

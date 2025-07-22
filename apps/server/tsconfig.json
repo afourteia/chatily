@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2022"],
+    "types": ["node"],
+    "outDir": "dist",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@project-name/*": ["../../packages/*"]
+    }
+  },
+  "include": ["src/**/*", "scripts", "templates"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "types"
+    // "prisma",
+    // "playground",
+    // "templates",
+    // "dataMigration",
+    // "scripts"
+  ],
+  "references": [
+    {
+      "path": "../../packages/db/"
+    },
+    {
+      "path": "../../packages/enum/"
+    },
+    {
+      "path": "../../packages/api"
+    }
+  ],
+  "tsc-alias": {
+    "verbose": false,
+    "resolveFullPaths": true
+  }
+}

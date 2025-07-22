@@ -1,0 +1,59 @@
+/.cache
+**/build
+**/public/build
+**/dist/
+**/types/
+.env
+.env.*
+.env*
+
+*.xls
+*.xlsx
+*.csv
+
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+.eslintcache
+*.local
+
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Yarn 3
+/.yarn/*
+# !/.yarn/patches
+# !/.yarn/plugins
+!/.yarn/releases
+# !/.yarn/sdks
+# !/.yarn/cache
+
+# local database
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+
+# Special File
+*.tsbuildinfo
+
+# generated files
+schema/
+packages/mainDB/prisma/fakeData/functions.ts
+apps/browser/stats.html

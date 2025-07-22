@@ -1,0 +1,22 @@
+import 'base'
+import 'user'
+import 'beneficiary'
+
+
+model InvoiceInquiry extends Projection, BaseWithUser {
+  beneficiary         Beneficiary @relation(fields: [beneficiaryId], references: [id])
+  beneficiaryId       String
+
+  requestedAmount     Decimal
+  requestDescription  String
+  coveredAmount       Decimal
+
+  approvalStatus      String      @default("pending") // pending, approved, rejected
+  decisionDescription String?
+  utilizationStatus   String      @default("pending") // not-utilized, utilized
+
+  healthCenterId      String?
+
+
+  expiryDate          DateTime
+}

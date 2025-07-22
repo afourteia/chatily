@@ -1,0 +1,53 @@
+{
+  "name": "@project-name/db",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "db-generate": "zenstack generate --output \"./generated/zenstack\" && pnpm run generate-index && pnpm run prettier",
+    "db-migrate": "dotenv -e .env.dev -- pnpm prisma migrate dev",
+    "db-migrate-prod": "dotenv -e .env.prod -- pnpm prisma migrate deploy",
+    "db-migration-check": "dotenv -e .env.dev -- pnpm prisma migrate status",
+    "generate-index": "pnpx tsx scripts/generate-index.ts",
+    "pushDB": "pnpx prisma db push && pnpm run prettier",
+    "resetDB": "pnpx prisma migrate reset --skip-generate --skip-seed && pnpx prisma db push",
+    "seedDB": "prisma db seed",
+    "migrateDB": "pnpx prisma migrate dev --name init",
+    "generateServices": "tsx scripts/generateServiceFiles.ts && tsx scripts/generateServiceFiles.ts && tsx scripts/generateSchemaFiles.ts && tsx scripts/generateRouterFiles.ts && tsx scripts/generateApiTypeFiles.ts",
+    "migrateData": "pnpx tsx dataMigration/playground.ts",
+    "db-seed": "prisma db seed",
+    "prettier": "prettier . --write --log-level warn",
+    "build": "pnpm db-generate && tsc && tsc-alias && tsx scripts/fix-build-import-path.ts",
+    "clean": "rimraf dist && rimraf types && rimraf generated",
+    "push-migration": "MAIN_DATABASE_URL='file:./prod.db' npx prisma migrate deploy"
+  },
+  "author": "Abdul Fourteia",
+  "license": "TBD",
+  "description": "prisma schema for main dalilshafi database",
+  "dependencies": {
+    "@prisma/client": "^6.8.1",
+    "@zenstackhq/runtime": "^2.16.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^22.15.33",
+    "chalk": "^5.3.0",
+    "decimal.js": "^10.5.0",
+    "dotenv": "^16.4.7",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "prisma": "^6.10.1",
+    "prisma-dbml-generator": "^0.12.0",
+    "prisma-erd-generator": "^1.11.2",
+    "prisma-generator-fake-data": "^0.14.2",
+    "prisma-zod-generator": "^0.8.13",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.17.0",
+    "zenstack": "^2.16.0"
+  }
+}

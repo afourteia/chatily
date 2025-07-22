@@ -1,0 +1,25 @@
+{
+  "name": "project-name-monorepo",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "clean": "rimraf node_modules apps/*/node_modules packages/*/node_modules",
+    "buildServer": "pnpm --filter @project-name/server... build",
+    "buildClient": "pnpm --filter @project-name/browser... build"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "tsc-alias": "^1.8.10",
+    "rimraf": "^6.0.1"
+  },
+  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677"
+}

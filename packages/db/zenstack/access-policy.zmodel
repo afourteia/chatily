@@ -1,0 +1,14 @@
+import 'base'
+import 'enum'
+import 'user'
+import 'organization'
+
+
+// model MemberPolicy extends BaseWithUser {
+//   user         User        @relation(fields: [userId], references: [id])
+//   userId       String
+//   tenant       Tenant      @relation(fields: [tenantId], references: [id])
+//   tenantId     String
+//   policyType   Enumeration @relation('MemberPolicyType', fields: [policyTypeId], references: [id])
+//   policyTypeId String
+// }

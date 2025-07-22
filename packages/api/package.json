@@ -1,0 +1,25 @@
+{
+  "name": "@project-name/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "clean": "rimraf dist types tsconfig.tsbuildinfo"
+  },
+  "prisma": {
+    "seed": "pnpx tsx prisma/seed.ts"
+  },
+  "author": "Abdul Fourteia",
+  "license": "TBD",
+  "description": "validation schemas for status tracker app",
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@project-name/db": "workspace:*",
+    "@project-name/enum": "workspace:*"
+  }
+}

@@ -1,0 +1,9 @@
+SELECT
+  *
+FROM
+  fawt.PatientServices
+UNION
+SELECT
+  *
+FROM
+  fawt.PatientExamination;

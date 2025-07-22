@@ -1,0 +1,143 @@
+import 'base'
+import 'beneficiary'
+import 'infra'
+import 'eventstore'
+import 'invoice'
+import 'organization'
+import 'user'
+
+
+
+
+model Country extends LangLocale, Primitive {
+  phoneCode String? @unique
+  currency  String?
+  cities    City[]
+}
+
+model City extends LangLocale, Primitive {
+  country   Country @relation(fields: [countryId], references: [id])
+  countryId String
+
+  // healthcareFacilities HealthCareFacility[]
+}
+
+model Enumeration extends LangLocale, Base {
+  enumCategory  String
+  meta          Json?
+  
+  // employee
+  // tenantStatuses            Tenant[]              @relation("ActiveStatus")
+
+  // CLINIC, DEPARTMENT, CONTRACT, REGION, ORGANIZATION, PHARMACY, LABORATORY, DOCTOR
+  tenantTypes   Tenant[]       @relation("TenantType")
+
+  resourceTypes Resource[]     @relation("ResourceType")
+
+  // USER, MEMBER, ADMIN, OWNER
+  memberRoles   TenantMember[] @relation("MemberRole")
+
+  // SENT, DELIVERED, READ, FAILED, PENDING, EXPIRED
+  // sms_trnsStg                           ShortMessageService[]                 @relation("TransmissionStage")
+  // email_trnsStg                         Email[]                               @relation("TransmissionStage")
+  // notif_trnsStg                         Notification[]                        @relation("TransmissionStage")
+
+  // OTP, TRANSACTION, PROMOTION, NOTIFICATION, WARNING
+  // sms_msgPur                            ShortMessageService[]                 @relation("MessagePurpose")
+  // email_msgPur                          Email[]                               @relation("MessagePurpose")
+  // notif_msgPur                          Notification[]                        @relation("MessagePurpose")
+
+  // RUNNING, PENDING, COMPLETED, FAILED, CANCELLED
+  // jobQueueStages                        JobQueue[]                            @relation("JobStage")
+
+  //
+  // jobQueueType                          JobQueue[]                            @relation("JobType")
+
+  // NOMINAL, STOPPED, DOWN, RESET, MAINTENANCE, DEGRADED
+  // cronJobs                  CronJob[]             @relation("CronJobStatus")
+
+  // eventLogs_lgLvl                       EventLog[]                            @relation("LogLevel")
+
+  // UPLOADING, UPLOADED, EMPTY, UNDETERMINED, ERROR
+  // documentStates  Document[]    @relation("DocumentState")
+
+
+  // MALE, FEMALE, UNKNOWN
+  // employee_gndrs                        Employee[]                            @relation("Gender")
+  
+
+  // SINGLE, MULTIPLE
+  // productionTemplate_qnty               ProductionEventTemplate[]             @relation("eventQuantityType")
+
+  // INDIVIDUAL, MULTIPLE, COLLECTIVE
+  // productionTemplate_cntrbTyp           ProductionEventTemplate[]             @relation("ContributionType")
+
+  // PENDING, SUBMITTED, APPROVED, DENIED
+  // prodEvent_RvSte                       ProductionEvent[]                     @relation("ReviewStatus")
+  // prodContributor_RvSte                 ProductionEventContributor[]          @relation("ReviewStatus")
+  // assignContributor_RvSte               AssignRqstContributor[]               @relation("ReviewStatus")
+  // prodEventLog_RvSte                    ProductionEventChangeLog[]            @relation("ReviewStatus")
+  // prodEventCntrbLog_RvSte               ProductionEventContributorChangeLog[] @relation("ReviewStatus")
+  // assgnLog_RvSte                        AssignRqstChangeLog[]                 @relation("ReviewStatus")
+  // assgnRvw_RvSte                            AssignmentEvent[]                     @relation("ReviewStatus")
+
+
+
+
+  // // PENDING, READY, SIGNED
+  // payrollMonthly_SignOffSte             PayrollMonthlySummary[]               @relation("SignOffStatus")
+  // payrollMonthlyLog_SignOffSte          PayrollMonthlySummaryLog[]            @relation("SignOffStatus")
+
+  // // PENDING, SUBMITTED, REVIEWED, SEALED, PAID, RETURNED
+  // payrollMonthly_Ste                    PayrollMonthlySummary[]               @relation("PayrollStatus")
+  // payrollRecord_Ste                     PayrollRecord[]                       @relation("PayrollStatus")
+  // payrollMonthlySummaryLog_ste          PayrollMonthlySummaryLog[]            @relation("PayrollStatus")
+
+  // // SALARY, WAGE
+  // compensationAgreement_compsType       CompensationAgreement[]               @relation("CompensationType")
+  // compensationScheduledChange_compsType CompensationChngSchdl[]               @relation("CompensationType")
+
+  // // CONTRACT, HEALTHCARE_FACILITY, BENEFICIARY, VISITATION_RECORD
+  // parameterTypesMeta                    ParameterTypeMeta[]                   @relation("ParameterType")
+  // prodTemplate_ParamType                ProductionEventTemplate_Parameter[]   @relation("ParameterType")
+  // prodEventAssociatedParams_ParamType   ProdEvntAssociatedParameter[]         @relation("ParameterType")
+  // assignRqstAssociatedParams_ParamType  AssignRqstAssociatedParameter[]       @relation("ParameterType")
+
+  // compensationScheduledChange_RvSte     CompensationChngSchdl[]               @relation("ReviewStatus")
+  // compensationScheduledChange_ImpSte    CompensationChngSchdl[]               @relation("ImplementationStatus")
+
+  // entityChangeRequest_RvwSte            EntityChangeRequest[]                 @relation("ReviewStatus")
+  // entityChangeRequest_ImpSte            EntityChangeRequest[]                 @relation("ImplementationStatus")
+  // bulkChangeRequest_RvwSte              BulkChangeRequest[]                   @relation("ReviewStatus")
+  // bulkChangeRequest_ImpSte              BulkChangeRequest[]                   @relation("ImplementationStatus")
+  
+
+  
+  // // OPEN, SEALED
+  // productionMonthlySummary_SubmitSte    ProductionMonthlySummary[]            @relation("SubmissionStatus")
+
+  // payrollAdjustment_type                PayrollRecordAdjustment[]             @relation("AdjustmentType")
+
+  // employeeRoles_type                    Employee_Role[]                       @relation("EmployeeRole")
+
+  // additionalRule_RuleTrgt                   WageAgreementAdditionalRule[]         @relation("RuleTarget")
+
+  @@index([enumCategory, id])
+}
+
+
+
+model Tag extends Base {
+  name        String
+  description String?
+}
+
+
+model SchemaTables {
+  name String @id
+
+  // groupingRule GroupingRule[]
+}
+
+
+

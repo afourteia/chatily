@@ -1,0 +1,15 @@
+{
+  "name": "بوابة الدليل الشافي للعيادات",
+  "short_name": "بوابة العيادات",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "180x178",
+      "type": "image/png"
+    }
+  ]
+}

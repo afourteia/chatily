@@ -1,0 +1,68 @@
+import './zenstack/access-policy'
+import './zenstack/base'
+import './zenstack/beneficiary'
+import './zenstack/enum'
+import './zenstack/eventstore'
+import './zenstack/infra'
+import './zenstack/invoice'
+import './zenstack/organization'
+import './zenstack/user'
+
+
+datasource db {
+  provider = "sqlite"
+  url      = env("MAIN_DATABASE_URL")
+}
+
+generator client {
+  // provider = "prisma-client-js"
+  // previewFeatures = ["relationJoins"] // Supports Postgres & MySQL only
+  provider     = "prisma-client"           // no `-js` at the end
+  output       = "./../generated/prisma" // `output` is required
+  moduleFormat = "esm"
+}
+
+// generator fakeData {
+//   provider = "prisma-generator-fake-data"
+//   output   = "./fakeData/functions.ts"
+//   // extraImport = "import {myCustomFunction} from '../utils/fakeImports'"
+//   // emptyValueAs = "myCustomFunction()"
+//   // ExtraImport = 	"export * from '../utils/fakeImports'"
+// }
+
+
+// generator dbml {
+//   provider = "prisma-dbml-generator"
+// }
+
+// plugin zod {
+//   provider = '@core/zod'
+//   output = 'schema/zod'
+//   compile = false
+// }
+
+// generator zod {
+//   provider = "prisma-zod-generator"
+// }
+
+// plugin openapi {
+//   provider = '@zenstackhq/openapi'
+//   prefix = '/api'
+//   title = 'Cost Center API'
+//   version = '0.1.0'
+//   description = 'Cost Center API'
+//   output = 'costcenter-api.yaml'
+//   securitySchemes = {
+//         basic: { type: 'http', scheme: 'basic' },
+//         bearer: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+//         apiKey: { type: 'apiKey', in: 'header', name: 'X-API-KEY' }
+//     }
+// }
+
+// generator erd {
+//   provider = "prisma-erd-generator"
+//   theme = "forest"
+//   // tableOnly = true
+//   includeRelationFromFields = true
+//   output = "./ERD.pdf"
+// }

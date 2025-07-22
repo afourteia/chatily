@@ -1,0 +1,50 @@
+import 'base'
+import 'user'
+import 'invoice'
+
+model BeneficiaryEntity extends Projection, Base {
+  workId        String
+  institution   String
+
+  beneficiaries Beneficiary[]
+
+  @@unique([institution, workId])
+}
+
+model Beneficiary extends Base {
+  name             String
+  dalilId          String                       @unique
+  workId           String
+  relationship     String
+  dateOfBirth      DateTime?
+
+  isActive         Boolean                      @default(true)
+  isHidden         Boolean                      @default(false)
+
+  entity           BeneficiaryEntity            @relation(fields: [entityId], references: [id])
+  entityId         String
+
+  dalilDbId        BigInt                       @unique
+
+  viewLogs         ViewLog[]
+  statusChangeLogs BeneficiaryStatusChangeLog[]
+  inquiries        InvoiceInquiry[]
+}
+
+model BeneficiaryStatusChangeLog extends Projection, Primitive {
+  beneficiary   Beneficiary @relation(fields: [beneficiaryId], references: [id])
+  beneficiaryId String
+  status        String
+
+  @@index([beneficiaryId, createdAt(sort: Desc)])
+}
+
+model ViewLog extends PrimitiveWithUser {
+
+  beneficiary   Beneficiary @relation(fields: [beneficiaryId], references: [id])
+  beneficiaryId String
+  ipAddress     String
+  userAgent     String
+
+  @@index([beneficiaryId, createdAt(sort: Desc)])
+}

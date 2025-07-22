@@ -1,0 +1,21 @@
+import 'base'
+import 'user'
+
+
+model EventLog extends Primitive {
+  // messageAr   String
+  // messageEn   String
+  message     String
+  source      String
+  levelTypeId String
+  meta    Json?
+}
+
+model Notification extends Primitive {
+  user    User      @relation(fields: [userId], references: [id])
+  userId  String
+  title   String
+  message String
+  payload Json?
+  readAt  DateTime?
+}

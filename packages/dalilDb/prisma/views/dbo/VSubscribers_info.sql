@@ -1,0 +1,16 @@
+SELECT
+  id,
+  subscriberId,
+  firstName,
+  fatherName,
+  grandFatherName,
+  familyName,
+  birthday,
+  nationality,
+  nationalId,
+  gender,
+  passport,
+  residence,
+  addedAt
+FROM
+  huia.subscribers_info;

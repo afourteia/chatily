@@ -1,0 +1,21 @@
+{
+  "name": "@project-name/enum",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf tsconfig.tsbuildinfo dist types && tsc && tsc-alias"
+  },
+  "prisma": {
+    "seed": "pnpx tsx prisma/seed.ts"
+  },
+  "author": "Abdul Fourteia",
+  "license": "TBD",
+  "description": "enum schemas for status tracker app",
+  "dependencies": {},
+  "devDependencies": {
+    "@project-name/db": "workspace:*"
+  }
+}

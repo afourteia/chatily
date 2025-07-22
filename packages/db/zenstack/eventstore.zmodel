@@ -1,0 +1,39 @@
+
+import 'base'
+
+model AggregateSnapshot {
+  id               String      @id() @default(cuid(2))
+  aggregateType    String
+  aggregateId      String
+  snapshotData     Json
+  version          BigInt      // Version at which the snapshot was ta
+  createdAt        DateTime    @default(now())
+
+  eventStoreCommit EventStore? @relation(fields: [eventStoreId], references: [id])
+  eventStoreId     String?     @unique
+
+  @@unique([aggregateType, aggregateId, version])
+  @@index([createdAt(sort: Desc)])
+}
+
+model EventStore extends PrimitiveWithUser {
+  aggregateType String   // e.g., "ProductionEventTemplate"
+  aggregateId   String   // e.g., the template's id
+  eventType     String   // e.g., "ManualEntryAllowedChanged"
+  data          Json     // All event-specific data
+  version       BigInt      // Aggregate version after this event
+  correlationId String? // Optional correlation ID for tracing
+  commandId     String? // Optional command ID that triggered this event
+
+  snapshot      AggregateSnapshot?
+
+  @@unique([aggregateType, aggregateId, version])
+}
+
+model EventCommand extends PrimitiveWithUser {
+  aggregateType String   // e.g., "ProductionEventTemplate"
+  commandType   String   // e.g., "CreateProductionEventTemplate"
+  data          Json     // All command-specific data
+
+  @@index([aggregateType, createdAt(sort: Desc)])
+}

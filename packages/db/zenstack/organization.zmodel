@@ -1,0 +1,59 @@
+import 'base'
+import 'enum'
+import 'user'
+
+
+
+model Tenant extends Projection, BaseWithUser {
+  name                 String
+  members              TenantMember[]
+  tenantType           Enumeration          @relation('TenantType', fields: [tenantTypeId], references: [id])
+  tenantTypeId         String
+  isActive             Boolean              @default(true)
+
+  tenantAccessPolicies TenantAccessPolicy[]
+}
+
+model TenantMember extends Projection, BaseWithUser {
+  // userRole   Enumeration @relation('UserRole', fields: [userRoleId], references: [id])
+  // userRoleId String
+  user         User        @relation(fields: [userId], references: [id])
+  userId       String
+  tenant       Tenant      @relation(fields: [tenantId], references: [id])
+  tenantId     String
+  memberRole   Enumeration @relation('MemberRole', fields: [memberRoleId], references: [id])
+  memberRoleId String
+  @@unique([userId, tenantId])
+  @@index([tenantId, userId])
+}
+
+
+
+model TenantAccessPolicy extends Projection, BaseWithUser {
+  tenant     Tenant   @relation(fields: [tenantId], references: [id])
+  tenantId   String 
+  // policyType   Enumeration @relation('AccessPolicyType', fields: [policyTypeId], references: [id])
+  // policyTypeId String
+  resource   Resource @relation(fields: [resourceId], references: [id])
+  resourceId String   
+  
+
+  // @@unique([tenantId, resourceId, policyTypeId])
+}
+
+model Resource extends Projection, BaseWithUser {
+  resourceType         Enumeration          @relation('ResourceType', fields: [resourceTypeId], references: [id])
+  resourceTypeId       String
+  foreignKey           String                // Id of the resource. Can't be a foreign key
+
+  //* Project specific fields
+  // contracts            Contract[]
+  // institutions         Institution[]
+  // healthCareFacilities HealthCareFacility[]
+  // doctors              Doctor[]
+  // insurers             Insurer[]
+  // * End of project specific fields
+
+  tenantAccessPolicies TenantAccessPolicy[]
+  @@unique([resourceTypeId, foreignKey])
+}

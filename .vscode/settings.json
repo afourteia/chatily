@@ -1,0 +1,10 @@
+{
+  "cSpell.words": [
+    "autorestart",
+    "clinicgate",
+    "eventstore",
+    "Misrata",
+    "Zuara"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

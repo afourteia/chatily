@@ -1,0 +1,81 @@
+import 'user'
+
+
+abstract model Primitive {
+  id        String   @id //@default(cuid(2))
+  createdAt DateTime @default(now())
+
+  @@index([ createdAt(sort: Desc)])
+
+  @@allow('all', true)
+}
+
+abstract model PrimitiveWithUser extends Primitive {
+  creator   User   @relation("creator", fields: [creatorId], references: [id])
+  creatorId String
+
+  @@index([creatorId, createdAt(sort: Desc)])
+}
+
+abstract model Base extends Primitive {
+  updatedAt DateTime @updatedAt 
+  // isPublished   Boolean  @default(true)
+  // isSoftDeleted Boolean  @default(false)
+
+  @@index([ updatedAt(sort: Desc)])
+}
+
+
+abstract model BaseWithUser extends Base {
+  creator   User   @relation("creator", fields: [creatorId], references: [id])
+  creatorId String
+  updater   User   @relation("updater", fields: [updaterId], references: [id])
+  updaterId String
+
+  @@index([ updaterId(sort: Desc)])
+}
+// abstract model ActivePeriod {
+//   activatedAt   DateTime
+//   deactivatedAt DateTime?
+// }
+
+// abstract model RowStatus {
+//   rowStatus      Enumeration @relation("ActiveStatus", fields: [rowStatusId], references: [id])
+//   rowStatusId    String
+//   rowStatusSetAt DateTime
+// }
+
+// abstract model RowStatusWithUser extends RowStatus {
+//   statusSetBy   User   @relation("StatusSetBy", fields: [statusSetById], references: [id])
+//   statusSetById String
+// }
+
+abstract model Projection {
+  projectedAt DateTime @default(now())
+}
+
+
+
+abstract model LangLocale {
+  nameAr String
+  nameEn String?
+}
+
+// abstract model HumanProfile {
+//   firstName  String
+//   secondName String?
+//   thirdName  String?
+//   fourthName String?
+//   lastName   String
+//   fullName   String
+//   birthDate  DateTime?
+//   gender     Enumeration? @relation("Gender", fields: [genderId], references: [id])
+//   genderId   String?
+
+//   // nationality String?
+//   // nationalID  String?
+// }
+
+
+
+
