@@ -3,12 +3,12 @@ import { ServerError } from '~/utils/error';
 import { createCUID } from '~/utils/id';
 import jwt from 'jsonwebtoken';
 import { JWTKeyParser, refreshTokenKeyParser } from '~/utils/jwt';
-import { logLevelEnum } from '@project-name/enum';
+import { logLevelEnum } from '@chatally/enum';
 import {
   refreshAccessTokenInputSchema,
   type RefreshAccessTokenInput,
   type RefreshAccessTokenOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 import type { PrismaInstance } from '~/utils/db';
 
 async function refreshAccessToken({

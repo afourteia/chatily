@@ -7,12 +7,12 @@ import { ServerError } from '~/utils/error';
 import bcrypt from 'bcrypt';
 import { createCUID } from '~/utils/id';
 import { verifyTOTP } from '~/utils/otp';
-import { logLevelEnum } from '@project-name/enum';
+import { logLevelEnum } from '@chatally/enum';
 import {
   updateUserPasswordInputSchema,
   type UpdateUserPasswordInput,
   type UpdateUserPasswordOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 import { SoftwareConfigParser } from '~/utils/environment';
 import { getUpdaterId } from '~/utils/creator';
 import type { PrismaInstance } from '~/utils/db';

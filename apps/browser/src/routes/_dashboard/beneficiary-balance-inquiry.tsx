@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Input, MaskedInput } from '@/components/ui/input';
 import { useDbReader } from '@/utils/api';
-import type { Results } from '@project-name/db';
+import type { Results } from '@chatally/db';
 import { Badge } from '@/components/ui/badge';
 import { Spinner } from '@/components/ui/spinner';
 import { relationshipMap } from '@/utils/sub-relationship-map';

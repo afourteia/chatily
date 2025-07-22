@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express';
-import { Prisma } from '@project-name/db/generated/prisma/client';
+import { Prisma } from '@chatally/db/generated/prisma/client';
 import _stripAnsi from 'strip-ansi';
 import chalk from 'chalk';
 import { StatusCodes } from 'http-status-codes';

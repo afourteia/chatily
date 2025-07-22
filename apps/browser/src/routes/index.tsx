@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Input } from 'react-aria-components';
 import { useDbReader } from '@/utils/api';
-import type { Arguments, Results } from '@project-name/db';
+import type { Arguments, Results } from '@chatally/db';
 import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card';
 import dalilLogo from '@/assets/img/name-logo-v.png'
 

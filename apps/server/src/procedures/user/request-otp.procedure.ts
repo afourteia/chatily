@@ -9,12 +9,12 @@ import {
 //   logLevelEnum,
 //   transmissionStageEnum,
 //   transmissionTypeEnum,
-// } from '@project-name/enum';
+// } from '@chatally/enum';
 import {
   // requestOtpInputSchema,
   type RequestOtpInput,
   type RequestOtpOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 // import { SoftwareConfigParser } from '~/utils/environment';
 import type { PrismaInstance } from '~/utils/db';
 import { ServerError } from '~/utils/error';

@@ -10,8 +10,9 @@ import './zenstack/user'
 
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("MAIN_DATABASE_URL")
+  directUrl = env("MAIN_DATABASE_DIRECT_URL")
 }
 
 generator client {

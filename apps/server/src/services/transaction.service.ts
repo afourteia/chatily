@@ -2,9 +2,9 @@ import {
   modelNameObj,
   type GetOperations,
   type PostOperations,
-} from '@project-name/db';
-import { Prisma } from '@project-name/db/generated/prisma/client';
-import { type WrappedFunctionResponse } from '@project-name/api';
+} from '@chatally/db';
+import { Prisma } from '@chatally/db/generated/prisma/client';
+import { type WrappedFunctionResponse } from '@chatally/api';
 import { ServerError } from '~/utils/error';
 import { middleware, type WrappedFunctionObservable } from '~/utils/middleware';
 import type { PrismaInstance } from '~/utils/db';

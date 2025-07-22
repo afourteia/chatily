@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { type WrappedFunctionResponse } from '../index';
-import type { Results, Arguments } from '@project-name/db';
+import type { Results, Arguments } from '@chatally/db';
 
 const args = {
   include: {

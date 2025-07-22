@@ -1,5 +1,5 @@
 {
-  "name": "@project-name/api",
+  "name": "@chatally/api",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -19,7 +19,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@project-name/db": "workspace:*",
-    "@project-name/enum": "workspace:*"
+    "@chatally/db": "workspace:*",
+    "@chatally/enum": "workspace:*"
   }
 }

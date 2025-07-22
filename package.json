@@ -1,13 +1,13 @@
 {
-  "name": "project-name-monorepo",
+  "name": "chatally-monorepo",
   "version": "1.0.0",
   "type": "module",
   "private": true,
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
     "clean": "rimraf node_modules apps/*/node_modules packages/*/node_modules",
-    "buildServer": "pnpm --filter @project-name/server... build",
-    "buildClient": "pnpm --filter @project-name/browser... build"
+    "buildServer": "pnpm --filter @chatally/server... build",
+    "buildClient": "pnpm --filter @chatally/browser... build"
   },
   "workspaces": [
     "apps/*",

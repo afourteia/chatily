@@ -5,7 +5,7 @@ import type {
   ModelName,
   PostOperations,
   Results,
-} from '@project-name/db';
+} from '@chatally/db';
 import superjson, { type SuperJSONResult } from 'superjson';
 
 import {
@@ -23,7 +23,7 @@ import {
   type ProcedureIO,
   procedureEndpointMap,
   type ProcedureEndpointMap,
-} from '@project-name/api';
+} from '@chatally/api';
 
 export type QueryKey<
   M extends ModelName,

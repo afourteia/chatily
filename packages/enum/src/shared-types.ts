@@ -1,4 +1,4 @@
-import type { Prisma } from '@project-name/db/generated/prisma/client';
+import type { Prisma } from '@chatally/db/generated/prisma/client';
 
 export type EnumerationObject = Omit<
   Prisma.EnumerationCreateManyInput,

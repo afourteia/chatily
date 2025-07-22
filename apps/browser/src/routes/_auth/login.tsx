@@ -14,7 +14,7 @@ import type { FileRouteTypes } from '@/routeTree.gen';
 import { useStore } from '@/store/use-store';
 import { useProcedure } from '@/utils/api';
 import { getResolver } from '@/utils/zod-resolver';
-import { loginInputSchema as formSchema } from '@project-name/api';
+import { loginInputSchema as formSchema } from '@chatally/api';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';

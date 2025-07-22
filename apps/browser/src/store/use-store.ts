@@ -1,6 +1,6 @@
 import { create, type Mutate, type StateCreator, type StoreApi } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import type { LoginOutput } from '@project-name/api';
+import type { LoginOutput } from '@chatally/api';
 
 const zustandStorageName = 'zustand-storage';
 const storeVersion = 2; // Increment this when making breaking changes to the store

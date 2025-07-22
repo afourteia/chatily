@@ -1,5 +1,5 @@
 import '~/utils/env-config';
-import country from '@project-name/enum/src/country';
+import country from '@chatally/enum/src/country';
 import prisma from '~/utils/db';
 
 // export async function seedEnum() {

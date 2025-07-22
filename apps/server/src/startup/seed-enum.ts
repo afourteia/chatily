@@ -1,6 +1,6 @@
 import '~/utils/env-config';
 import prisma from '~/utils/db';
-import { enums } from '@project-name/enum';
+import { enums } from '@chatally/enum';
 
 export async function seedEnum() {
   console.log('Seeding enums...');

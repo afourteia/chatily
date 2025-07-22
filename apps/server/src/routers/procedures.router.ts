@@ -14,7 +14,7 @@ import { ServerError } from '~/utils/error';
 import {
   procedureEndpointList,
   type ProcedureEndPoint,
-} from '@project-name/api';
+} from '@chatally/api';
 const procedureRouter: Router = Router();
 
 type ProcedureDetails = {

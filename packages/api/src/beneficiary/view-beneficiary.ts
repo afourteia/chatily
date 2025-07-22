@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { type WrappedFunctionResponse } from '../index';
-import type { Results } from '@project-name/db';
+import type { Results } from '@chatally/db';
 
 export const viewBeneficiaryInputSchema = z
   .object({

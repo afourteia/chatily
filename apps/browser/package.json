@@ -1,5 +1,5 @@
 {
-  "name": "@project-name/browser",
+  "name": "@chatally/browser",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -40,8 +40,8 @@
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-aria/i18n": "^3.12.3",
     "@react-pdf/renderer": "^4.2.1",
-    "@project-name/api": "workspace:*",
-    "@project-name/enum": "workspace:*",
+    "@chatally/api": "workspace:*",
+    "@chatally/enum": "workspace:*",
     "@tanstack/react-query": "^5.66.0",
     "@tanstack/react-router": "^1.99.13",
     "@tanstack/react-table": "^8.20.6",
@@ -83,8 +83,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^8.57.1",
-    "@project-name/db": "workspace:*",
-    "@project-name/server": "workspace:*",
+    "@chatally/db": "workspace:*",
+    "@chatally/server": "workspace:*",
     "@tanstack/eslint-plugin-query": "^5.66.0",
     "@tanstack/eslint-plugin-router": "^1.99.3",
     "@tanstack/react-query-devtools": "^5.66.0",

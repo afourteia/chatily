@@ -3,13 +3,13 @@ import {
   type WrappedFunctionErrorWithObservable,
   type WrappedFunctionObservable,
 } from '~/utils/middleware';
-import { logLevelEnum } from '@project-name/enum';
+import { logLevelEnum } from '@chatally/enum';
 import type { PrismaInstance } from '~/utils/db';
 import {
   updateBeneficiaryInputSchema,
   type UpdateBeneficiaryInput,
   type UpdateBeneficiaryOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 
 async function updateBeneficiary({
   input,

@@ -38,7 +38,7 @@ import { Button } from '@/components/ui/button';
 // import { useDbReader, useProcedure, useSeeder } from '@/utils/api';
 import { queryClient } from '@/query-client';
 import { Badge } from '@/components/ui/badge';
-import { transmissionStageEnum } from '@project-name/enum';
+import { transmissionStageEnum } from '@chatally/enum';
 import dalilNameLogoH from '@/assets/img/name-logo-h.png';
 import { useEffect } from 'react';
 

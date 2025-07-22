@@ -4,12 +4,12 @@ import {
   type WrappedFunctionObservable,
 } from '~/utils/middleware';
 import { ServerError } from '~/utils/error';
-import { activeStatusEnum, logLevelEnum } from '@project-name/enum';
+import { activeStatusEnum, logLevelEnum } from '@chatally/enum';
 import {
   updateUserInputSchema,
   type UpdateUserInput,
   type UpdateUserOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 import { getUpdaterId } from '~/utils/creator';
 import type { PrismaInstance } from '~/utils/db';
 

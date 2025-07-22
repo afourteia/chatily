@@ -1,5 +1,5 @@
 {
-  "name": "@project-name/enum",
+  "name": "@chatally/enum",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -16,6 +16,6 @@
   "description": "enum schemas for status tracker app",
   "dependencies": {},
   "devDependencies": {
-    "@project-name/db": "workspace:*"
+    "@chatally/db": "workspace:*"
   }
 }

@@ -11,9 +11,9 @@ export default defineConfig({
   dts: false,
   splitting: false,
   noExternal: [
-    '@project-name/enum',
-    '@project-name/api',
-    '@project-name/db',
+    '@chatally/enum',
+    '@chatally/api',
+    '@chatally/db',
   ],
   // external: [
   //   '.prisma/client', // If you import Prisma Client directly

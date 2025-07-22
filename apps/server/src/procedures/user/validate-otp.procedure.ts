@@ -6,12 +6,12 @@ import {
 // import { verifyTOTP } from '~/utils/otp';
 import { ServerError } from '~/utils/error';
 // import { createCUID } from '~/utils/id';
-// import { logLevelEnum } from '@project-name/enum';
+// import { logLevelEnum } from '@chatally/enum';
 import {
   // validateOtpInputSchema,
   type ValidateOtpInput,
   type ValidateOtpOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 import type { PrismaInstance } from '~/utils/db';
 
 async function validateOtp({

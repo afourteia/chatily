@@ -10,7 +10,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { useProcedure } from '@/utils/api';
 import { getResolver } from '@/utils/zod-resolver';
-import { updateUserPasswordInputSchema as formSchema } from '@project-name/api';
+import { updateUserPasswordInputSchema as formSchema } from '@chatally/api';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useState } from 'react';

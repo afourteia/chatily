@@ -5,12 +5,12 @@ import {
 } from '~/utils/middleware';
 import { ServerError } from '~/utils/error';
 import bcrypt from 'bcrypt';
-import { logLevelEnum } from '@project-name/enum';
+import { logLevelEnum } from '@chatally/enum';
 import {
   resetPasswordInputSchema,
   type ResetPasswordInput,
   type ResetPasswordOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 // import { getUpdaterId } from '~/utils/creator';
 import type { PrismaInstance } from '~/utils/db';
 

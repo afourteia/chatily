@@ -2,12 +2,12 @@ import type { Request, Response } from 'express';
 import { getUserIdFromHeader } from '~/utils/auth';
 import { Decimal } from 'decimal.js';
 import superjson from 'superjson';
-import type { Prisma } from '@project-name/db/generated/prisma/client';
+import type { Prisma } from '@chatally/db/generated/prisma/client';
 import type { PrismaInstance } from '~/utils/db';
 import prisma from '~/utils/db';
 import { ServerError } from '~/utils/error';
 import { createCUID } from '~/utils/id';
-import type { WrappedFunctionResponse } from '@project-name/api';
+import type { WrappedFunctionResponse } from '@chatally/api';
 superjson.registerCustom<Decimal, string>(
   {
     isApplicable: (v): v is Decimal => Decimal.isDecimal(v),

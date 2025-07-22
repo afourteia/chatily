@@ -5,7 +5,7 @@ import axios, {
 } from 'axios';
 import { useStore } from '@/store/use-store';
 import { type SuperJSONResult } from 'superjson';
-import { type ProcedureIO } from '@project-name/api';
+import { type ProcedureIO } from '@chatally/api';
 import superjson from 'superjson';
 import Decimal from 'decimal.js';
 superjson.registerCustom<Decimal, string>(

@@ -9,13 +9,13 @@ import {
   type WrappedFunctionErrorWithObservable,
   type WrappedFunctionObservable,
 } from '~/utils/middleware';
-import { logLevelEnum } from '@project-name/enum';
+import { logLevelEnum } from '@chatally/enum';
 import type { PrismaInstance } from '~/utils/db';
 import {
   loginInputSchema,
   type LoginInput,
   type LoginOutput,
-} from '@project-name/api';
+} from '@chatally/api';
 
 async function login({
   input,

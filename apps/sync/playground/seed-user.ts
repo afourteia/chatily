@@ -10,14 +10,14 @@ const __filename = fileURLToPath(import.meta.url);
 // config({ path: join(envPath, '.env') });
 // config({ path: join(__dirname, '../.env') });
 // import { createRequire } from 'module';
-// import type { PrismaClient as DalilPrismaClientType } from '@project-name/dalil-db/prisma/generated';
+// import type { PrismaClient as DalilPrismaClientType } from '@chatally/dalil-db/prisma/generated';
 // const require = createRequire(import.meta.url);
 // const {
 //   PrismaClient: DalilPrismaClient,
-// } = require('@project-name/dalil-db/prisma/generated');
-// import type { PrismaClient as MainDbClientType } from '@project-name/db/prisma/generated';
-// const { PrismaClient: MainDbClient } = require('@project-name/db/prisma/generated');
-// import { PrismaClient as DalilPrismaClient } from '@project-name/dalil-db/prisma/generated';
+// } = require('@chatally/dalil-db/prisma/generated');
+// import type { PrismaClient as MainDbClientType } from '@chatally/db/prisma/generated';
+// const { PrismaClient: MainDbClient } = require('@chatally/db/prisma/generated');
+// import { PrismaClient as DalilPrismaClient } from '@chatally/dalil-db/prisma/generated';
 import prisma from '~/utils/db';
 import { generateSecret } from '~/utils/otp';
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`);

@@ -2,11 +2,11 @@ import {
   type GetOperations,
   type PostOperations,
   modelNameObj,
-} from '@project-name/db';
-import { Prisma } from '@project-name/db/generated/prisma/client';
+} from '@chatally/db';
+import { Prisma } from '@chatally/db/generated/prisma/client';
 import { ServerError } from '~/utils/error';
 import { middleware, type WrappedFunctionObservable } from '~/utils/middleware';
-import { type WrappedFunctionResponse } from '@project-name/api';
+import { type WrappedFunctionResponse } from '@chatally/api';
 import type { PrismaInstance } from '~/utils/db';
 
 async function serveCRUD({
